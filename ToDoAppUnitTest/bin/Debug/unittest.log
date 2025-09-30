@@ -1,0 +1,189 @@
+----------------------------------------
+Timestamp: 9/29/2025 7:05:43 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:05:43 AM
+
+					Message: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 79
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at ToDoAppUnitTest.UnitTest1.Test_BindItems_WithInvalidListId_ShouldLogException() in C:\Users\murta\source\repos\ToDoApp\ToDoAppUnitTest\UnitTest1.cs:line 23
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Invalid ListId Test
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:05:43 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:05:43 AM
+
+					Message: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 79
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at ToDoAppUnitTest.UnitTest1.Test_BindItems_WithValidListId_ShouldNotThrow() in C:\Users\murta\source\repos\ToDoApp\ToDoAppUnitTest\UnitTest1.cs:line 48
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Valid ListId Test
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:08:48 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:08:48 AM
+
+					Message: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 79
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at ToDoAppUnitTest.UnitTest1.Test_BindItems_WithInvalidListId_ShouldLogException() in C:\Users\murta\source\repos\ToDoApp\ToDoAppUnitTest\UnitTest1.cs:line 24
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Invalid ListId Test
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:08:48 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:08:48 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 79
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Valid ListId Test
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:09:50 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:09:50 AM
+
+					Message: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 79
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at ToDoAppUnitTest.UnitTest1.Test_BindItems_WithInvalidListId_ShouldLogException() in C:\Users\murta\source\repos\ToDoApp\ToDoAppUnitTest\UnitTest1.cs:line 24
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Invalid ListId Test
+
+					----------------------------------------
+
+----------------------------------------
+----------------------------------------
+Timestamp: 9/29/2025 7:09:51 AM
+
+					Message: System.NullReferenceException: Object reference not set to an instance of an object.
+   at ToDoApp.ToDo.BindItems(Int32 listId) in C:\Users\murta\source\repos\ToDoApp\ToDoApp\ToDo.aspx.cs:line 67
+
+					Category: General
+
+					Severity: Error
+
+					Title: BindItems Failed
+
+					----------------------------------------
+
+----------------------------------------

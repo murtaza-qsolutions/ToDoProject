@@ -1,0 +1,228 @@
+﻿/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+input, button {
+    outline: none;
+    border: none;
+}
+
+/* STRUCTURE */
+body {
+    font: 14px/1.1 Helvetica, Sans-Serif;
+    background: url(images/stripe.png) repeat-x;
+}
+
+#page-wrap {
+    width: 960px;
+    margin: 6px auto 50px;
+}
+
+/* HEADER */
+#header {
+    height: 68px;
+    position: relative;
+}
+
+    #header h1 {
+        text-indent: -9999px;
+    }
+
+        #header h1 a {
+            display: block;
+            width: 200px;
+            height: 38px;
+            background: url(images/logo.png) no-repeat;
+        }
+
+/* LIST */
+#list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+    #list li {
+        position: relative;
+        margin: 0 0 8px 0;
+        padding: 0 0 0 70px; /* space for left tabs */
+        width: 607px;
+    }
+
+        #list li span.task-text {
+            padding: 8px;
+            border-radius: 5px;
+            width: 589px;
+            display: block;
+            background: #73b8bf; /* default fallback */
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+            #list li span.task-text.done {
+                text-decoration: line-through;
+                /*                opacity: 0.5;*/
+            }
+
+/* TABS */
+.tab {
+    background: url(images/minibuttons.png) no-repeat;
+    height: 21px;
+    top: 50%; 
+    transform: translateY(-50%);
+    position: absolute;
+    cursor: pointer;
+}
+
+/* drag handle */
+.draggertab {
+    left: 0;
+    width: 31px;
+}
+
+    .draggertab:hover {
+        background-position: 0 -21px;
+    }
+
+/* color picker tab */
+.colortab {
+    left: 34px;
+    width: 34px;
+    background-position: -31px 0;
+}
+
+    .colortab:hover {
+        background-position: -31px -21px;
+    }
+
+.hidden-color {
+    display: none;
+}
+
+/* delete tab */
+.deletetab {
+    right: -35px;
+    width: 15px;
+    background-position: -82px 0;
+}
+
+    .deletetab:hover {
+        background-position: -82px -21px;
+    }
+
+/* done tab */
+.donetab {
+    right: -17px;
+    width: 16px;
+    background-position: -65px 0;
+}
+
+    .donetab:hover {
+        background-position: -65px -21px;
+    }
+
+/* crossout line image (optional) */
+.crossout {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #000;
+}
+
+.task-text {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.color-picker {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+.hidden-color {
+    display: none !important;
+}
+
+.sortable-placeholder {
+    border: 2px dashed #ccc;
+    background: #f9f9f9;
+    height: 40px; /* match your li height */
+}
+/* When user clicks once, show the "SURE" graphic from sprite */
+.deletetab.confirm {
+    width: 44px;
+    display: block;
+    right: -64px;
+}
+
+
+.txtItem{
+    margin-top:50px;
+    width:500px;
+    height:50px;
+    border:3px solid gray;
+}
+.btnAddItem {
+    width: 80px;
+    height: 60px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background: #F9DD90;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btnAddItem:hover {
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2), -2px -2px 5px rgba(255,255,255,0.8);
+        transform: translateY(-2px);
+    }
+
+.task-text {
+    display: flex !important;
+    -webkit-align-items: center;
+    align-items: center !important;
+    -webkit-justify-content: center;
+    justify-content: center !important;
+}
+#list li span.task-text {
+    height: 5vh;
+    border-radius: 20px !important;
+    text-align: center !important;
+}
+
+#list li {
+    position: relative;
+}
+
+
+#upList {
+/*    border: 1px solid black;*/
+    text-align: center;
+    display: flex;
+    height: 5vh;
+    justify-content: center !important;
+    align-items: center !important;
+}
