@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\murta\\source\\repos\\ToDoApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\todo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\todo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EA4366F5-66CB-435B-9721-BE2381C87DC7}|ToDo.DAL\\ToDo.DAL.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todo.dal\\dao\\todoactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4366F5-66CB-435B-9721-BE2381C87DC7}|ToDo.DAL\\ToDo.DAL.csproj|solutionrelative:todo.dal\\dao\\todoactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5CEF260-DB93-4FC4-859A-D476639C8B19}|ToDo.App\\ToDo.App.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todo.app\\presenter\\todopresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5CEF260-DB93-4FC4-859A-D476639C8B19}|ToDo.App\\ToDo.App.csproj|solutionrelative:todo.app\\presenter\\todopresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\todo.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\todo.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\todo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\todo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4366F5-66CB-435B-9721-BE2381C87DC7}|ToDo.DAL\\ToDo.DAL.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todo.dal\\repository\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4366F5-66CB-435B-9721-BE2381C87DC7}|ToDo.DAL\\ToDo.DAL.csproj|solutionrelative:todo.dal\\repository\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|c:\\users\\murta\\source\\repos\\todoapp\\todoapp\\updatecontroller.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B920848-C65D-457D-8D9A-564861BE68E5}|ToDoApp\\ToDoApp.csproj|solutionrelative:todoapp\\updatecontroller.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 310,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,7 +50,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ToDoPresenter.cs",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.App\\Presenter\\ToDoPresenter.cs",
+              "RelativeDocumentMoniker": "ToDo.App\\Presenter\\ToDoPresenter.cs",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.App\\Presenter\\ToDoPresenter.cs*",
+              "RelativeToolTip": "ToDo.App\\Presenter\\ToDoPresenter.cs*",
+              "ViewState": "AgIAAGYAAAAAAAAAAAD4v3oAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T10:26:52.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\Global.asax.cs",
+              "RelativeDocumentMoniker": "ToDoApp\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\Global.asax.cs",
+              "RelativeToolTip": "ToDoApp\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T09:53:04.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\Web.config",
+              "RelativeDocumentMoniker": "ToDoApp\\Web.config",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\Web.config",
+              "RelativeToolTip": "ToDoApp\\Web.config",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAACoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-02T08:34:12.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Conection.cs",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.DAL\\Repository\\Conection.cs",
+              "RelativeDocumentMoniker": "ToDo.DAL\\Repository\\Conection.cs",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.DAL\\Repository\\Conection.cs",
+              "RelativeToolTip": "ToDo.DAL\\Repository\\Conection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T08:31:25.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UpdateController.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\UpdateController.aspx.cs",
+              "RelativeDocumentMoniker": "ToDoApp\\UpdateController.aspx.cs",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\UpdateController.aspx.cs",
+              "RelativeToolTip": "ToDoApp\\UpdateController.aspx.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T08:30:54.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ToDo.aspx",
               "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\ToDo.aspx",
               "RelativeDocumentMoniker": "ToDoApp\\ToDo.aspx",
@@ -34,20 +123,33 @@
               "RelativeToolTip": "ToDoApp\\ToDo.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-01T04:28:03.137Z",
+              "WhenOpened": "2025-10-02T08:19:03.746Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ToDoActions.cs",
+              "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.DAL\\DAO\\ToDoActions.cs",
+              "RelativeDocumentMoniker": "ToDo.DAL\\DAO\\ToDoActions.cs",
+              "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDo.DAL\\DAO\\ToDoActions.cs",
+              "RelativeToolTip": "ToDo.DAL\\DAO\\ToDoActions.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAD4v2wAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T08:14:18.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ToDo.aspx.cs",
               "DocumentMoniker": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\ToDo.aspx.cs",
               "RelativeDocumentMoniker": "ToDoApp\\ToDo.aspx.cs",
               "ToolTip": "C:\\Users\\murta\\source\\repos\\ToDoApp\\ToDoApp\\ToDo.aspx.cs",
               "RelativeToolTip": "ToDoApp\\ToDo.aspx.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAAAGYAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAABEBAAAAAAAAAAAcwDYBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T05:53:04.612Z",
+              "WhenOpened": "2025-10-02T06:46:10.258Z",
               "EditorCaption": ""
             }
           ]

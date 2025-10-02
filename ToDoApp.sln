@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp", "ToDoApp\ToDoApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAppUnitTest", "ToDoAppUnitTest\ToDoAppUnitTest.csproj", "{1AE5B155-BC38-4A19-899E-77EC3A9AECF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.App", "ToDo.App\ToDo.App.csproj", "{C5CEF260-DB93-4FC4-859A-D476639C8B19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.DAL", "ToDo.DAL\ToDo.DAL.csproj", "{EA4366F5-66CB-435B-9721-BE2381C87DC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +25,20 @@ Global
 		{1AE5B155-BC38-4A19-899E-77EC3A9AECF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AE5B155-BC38-4A19-899E-77EC3A9AECF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AE5B155-BC38-4A19-899E-77EC3A9AECF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CEF260-DB93-4FC4-859A-D476639C8B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CEF260-DB93-4FC4-859A-D476639C8B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CEF260-DB93-4FC4-859A-D476639C8B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CEF260-DB93-4FC4-859A-D476639C8B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B08B6F49-BB68-4735-9D5A-8CDCFFC36124}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		SolutionGuid = {B08B6F49-BB68-4735-9D5A-8CDCFFC36124}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,10 @@ namespace ToDoApp
     {
         void Application_Start(object sender, EventArgs e)
         {
+            DatabaseFactory.SetDatabaseProviderFactory(
+        new DatabaseProviderFactory(new SystemConfigurationSource(true)),
+        false
+    );
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

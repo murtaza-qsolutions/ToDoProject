@@ -12,22 +12,41 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ToDo.App.EventArg;
+using ToDo.App.Presenter;
+using ToDo.App.View;
 
 namespace ToDoApp
 {
     [System.Web.Script.Services.ScriptService]
-    public partial class ToDo : System.Web.UI.Page
+    public partial class ToDo : System.Web.UI.Page, IToDoView
     {
+
+        private ToDoPresenter presenter;
+
+        public event EventHandler<ToDoEventArguments> GetAll;
+        public event EventHandler<ToDoEventArguments> GetAllByID;
+        public event EventHandler<ToDoEventArguments> Insert;
+        public event EventHandler<ToDoEventArguments> Update;
+        public event EventHandler<ToDoEventArguments> Delete;
+        public event EventHandler<ToDoEventArguments> ColorChange;
+        public event EventHandler<ToDoEventArguments> DisplayOrderChange;
+        public event EventHandler<ToDoEventArguments> IsDoneChanged;
         public static bool IsTestMode { get; set; } = false;
         Database db;
 
+        public void AttachPresenter(ToDoPresenter presenter)
+        {
+            this.presenter = presenter;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new DatabaseProviderFactory().Create("ToDoDB");
+            presenter = new ToDoPresenter(this);
 
             if (!IsPostBack)
             {
-                BindItems(1); // Always use ListId = 1
+                BindItems(); 
             }
         }
 
@@ -37,11 +56,8 @@ namespace ToDoApp
 
             if (string.IsNullOrEmpty(s))
                 return "#6ec6d3";
-
-            // Hex check
             if (Regex.IsMatch(s, "^#([0-9a-fA-F]{6})$"))
                 return s.ToUpperInvariant();
-
             try
             {
                 var c = Color.FromName(s);
@@ -54,20 +70,15 @@ namespace ToDoApp
 
             return "#6ec6d3";
         }
-        private void BindItems(int listId)
+        private void BindItems()
         {
             try
             {
-                string query = @"SELECT ItemId, ItemText, IsDone, ItemColor, DisplayOrder 
-                         FROM ToDoItems WHERE ListId=@ListId 
-                         ORDER BY DisplayOrder";
-
-                using (DbCommand cmd = db.GetSqlStringCommand(query))
+              if(GetAll != null)
                 {
-                    db.AddInParameter(cmd, "@ListId", DbType.Int32, listId);
-
-                    DataSet ds = db.ExecuteDataSet(cmd);
-                    rptItems.DataSource = ds.Tables[0];
+                    ToDoEventArguments args = new ToDoEventArguments();
+                    GetAll(this, args);
+                    rptItems.DataSource = args.Items;
                     rptItems.DataBind();
                 }
             }
@@ -112,37 +123,45 @@ namespace ToDoApp
                 if (hfIsEdit.Value == "true" && int.TryParse(hfEditItemId.Value, out int itemId))
                 {
                     // UPDATE
-                    using (DbCommand cmd = db.GetSqlStringCommand("UPDATE ToDoItems SET ItemText=@text WHERE ItemId=@id"))
-                    {
-                        db.AddInParameter(cmd, "@text", DbType.String, text);
-                        db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-                        db.ExecuteNonQuery(cmd);
-                    }
-
+                    
+                        if (Update != null)
+                        {
+                            ToDoEventArguments args = new ToDoEventArguments
+                            {
+                                ItemId = itemId,
+                                ItemText = text
+                            };
+                            Update(this, args);
+                            BindItems();
+                            txtNewItem.Text = "";
+                        }
                     hfIsEdit.Value = "false";
                     hfEditItemId.Value = "";
                     btnAddItem.Text = "Add";
+
+
                 }
                 else
                 {
                     // INSERT
-                    int newOrder;
-                    using (DbCommand getMax = db.GetSqlStringCommand("SELECT ISNULL(MAX(DisplayOrder),0)+1 FROM ToDoItems WHERE ListId=1"))
+                    if (Insert != null)
                     {
-                        object result = db.ExecuteScalar(getMax);
-                        newOrder = Convert.ToInt32(result);
-                    }
-
-                    using (DbCommand cmd = db.GetSqlStringCommand("INSERT INTO ToDoItems (ListId, ItemText, DisplayOrder) VALUES (1, @ItemText, @Order)"))
-                    {
-                        db.AddInParameter(cmd, "@ItemText", DbType.String, text);
-                        db.AddInParameter(cmd, "@Order", DbType.Int32, newOrder);
-                        db.ExecuteNonQuery(cmd);
+                        ToDoEventArguments args = new ToDoEventArguments
+                        {
+                            ItemText = text,
+                            ItemColor = "#6ec6d3",
+                            IsDone = false,
+                            CreatedAt = DateTime.Now,
+                            ListId = 1
+                        };
+                        Insert(this, args);
+                        BindItems();
+                        txtNewItem.Text = ""; 
                     }
                 }
 
                 txtNewItem.Text = ""; // ✅ clear only after success
-                BindItems(1);
+                BindItems();
             }
             catch (Exception ex)
             {
@@ -176,16 +195,16 @@ namespace ToDoApp
             {
                 int itemId = Convert.ToInt32(e.CommandArgument);
 
-                using (DbCommand cmd = db.GetSqlStringCommand(
-                    @"UPDATE ToDoItems 
-                      SET IsDone = 1
-                      WHERE ItemId = @id AND IsDone = 0"))
-                {
-                    db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-                    db.ExecuteNonQuery(cmd);
-                }
-
-                BindItems(1);
+                    if (IsDoneChanged != null)
+                    {
+                        ToDoEventArguments args = new ToDoEventArguments
+                        {
+                            ItemId = itemId
+                        };
+                        IsDoneChanged(this, args);
+                        BindItems();
+                    }
+                    BindItems();
             }
             else if (e.CommandName == "ChangeColor")
             {
@@ -193,26 +212,35 @@ namespace ToDoApp
                 HiddenField hfColor = (HiddenField)e.Item.FindControl("hfItemColor");
                 string newColor = hfColor.Value;
 
-                using (DbCommand cmd = db.GetSqlStringCommand("UPDATE ToDoItems SET ItemColor=@color WHERE ItemId=@id"))
-                {
-                    db.AddInParameter(cmd, "@color", DbType.String, newColor);
-                    db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-                    db.ExecuteNonQuery(cmd);
-                }
+                    if (ColorChange != null)
+                    {
+                        ToDoEventArguments args = new ToDoEventArguments
+                        {
+                            ItemId = itemId,
+                            ItemColor = newColor
+                        };
+                        ColorChange(this, args);
+                        BindItems();
+                    }
 
-                BindItems(1);
+                BindItems();
             }
             else if (e.CommandName == "DeleteItem")
             {
                 int itemId = Convert.ToInt32(e.CommandArgument);
 
-                using (DbCommand cmd = db.GetSqlStringCommand("DELETE FROM ToDoItems WHERE ItemId=@id"))
-                {
-                    db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-                    db.ExecuteNonQuery(cmd);
-                }
+                    if (Delete != null)
+                    {
+                        ToDoEventArguments args = new ToDoEventArguments
+                        {
+                            ItemId = itemId
+                        };
+                        Delete(this, args);
+                        BindItems();
 
-                BindItems(1);
+                    }
+
+                BindItems();
                 }
             }
             catch (Exception ex)
@@ -273,15 +301,19 @@ namespace ToDoApp
                 {
                     if (int.TryParse(idStr, out int id))
                     {
-                        using (DbCommand cmd = db.GetSqlStringCommand("UPDATE ToDoItems SET DisplayOrder=@pos WHERE ItemId=@id"))
-                        {
-                            db.AddInParameter(cmd, "@pos", DbType.Int32, pos++);
-                            db.AddInParameter(cmd, "@id", DbType.Int32, id);
-                            db.ExecuteNonQuery(cmd);
+                            if (DisplayOrderChange != null)
+                            {
+                                ToDoEventArguments args = new ToDoEventArguments
+                                {
+                                    ItemId = id,
+                                    DisplayOrder = pos++
+                                };
+                                DisplayOrderChange(this, args);
+
+                            }
                         }
-                    }
                 }
-                BindItems(1);
+                BindItems();
             }
             }
             catch (Exception ex)

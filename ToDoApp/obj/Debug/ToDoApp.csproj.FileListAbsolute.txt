@@ -134,7 +134,14 @@ C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.ScriptManager.WebForms
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Newtonsoft.Json.dll
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\System.Web.Optimization.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\ToDo.App.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\ToDo.DAL.dll
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\WebGrease.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Unity.Abstractions.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Unity.Container.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\ToDo.App.pdb
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\ToDo.DAL.pdb
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml
@@ -143,6 +150,9 @@ C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Newtonsoft.Json.xml
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Antlr3.Runtime.pdb
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Unity.Abstractions.pdb
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\Unity.Container.pdb
+C:\Users\murta\source\repos\ToDoApp\ToDoApp\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\obj\Debug\ToDoApp.csproj.AssemblyReference.cache
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\obj\Debug\ToDoApp.csproj.CoreCompileInputs.cache
 C:\Users\murta\source\repos\ToDoApp\ToDoApp\obj\Debug\ToDoApp.csproj.Up2Date

@@ -23,19 +23,6 @@ namespace ToDoApp
 
                 int itemId = int.Parse(data["itemId"]);
                 string color = data["color"];
-                //int itemId = Convert.ToInt32(Request.Form["itemId"]);
-                //string color = Request.Form["color"];
-
-                // ---- Update DB here ----
-                // Example:
-                // using (SqlConnection con = new SqlConnection("YourConnectionString"))
-                // {
-                //     con.Open();
-                //     var cmd = new SqlCommand("UPDATE YourTable SET Color=@color WHERE ItemId=@id", con);
-                //     cmd.Parameters.AddWithValue("@color", color);
-                //     cmd.Parameters.AddWithValue("@id", itemId);
-                //     cmd.ExecuteNonQuery();
-                // }
 
                 Response.Write("{\"status\":\"success\"}");
             }
