@@ -6,6 +6,8 @@
     <title>ToDo App</title>
 
     <link href="~/Content/style.css" rel="stylesheet" />
+    <%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>--%>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -15,6 +17,7 @@
     <script src="<%= ResolveUrl("~/Scripts/ToDo.js") %>"></script>
 </head>
 <body>
+
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
 

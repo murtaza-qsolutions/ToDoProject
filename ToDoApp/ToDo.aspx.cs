@@ -54,11 +54,6 @@ namespace ToDoApp
 
             return "#6ec6d3";
         }
-
-
-        // -------------------------------
-        // BIND ITEMS TO REPEATER
-        // -------------------------------
         private void BindItems(int listId)
         {
             try
@@ -82,146 +77,11 @@ namespace ToDoApp
                 lblError.Text = "An error occurred while loading tasks.";
             }
         }
-
-        // -------------------------------
-        // ADD OR UPDATE ITEM
-        // -------------------------------
-        //protected void btnAddItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        txtNewItem.Text = "";
-        //        lblError.Text = "";
-        //    string text = txtNewItem.Text.Trim();
-
-        //    if (string.IsNullOrWhiteSpace(txtNewItem.Text))
-        //    {
-        //        lblError.Text = "Enter a task before adding.";
-        //        return;
-        //    }
-
-        //    if (hfIsEdit.Value == "true" && int.TryParse(hfEditItemId.Value, out int itemId))
-        //    {
-        //        // UPDATE
-        //        using (DbCommand cmd = db.GetSqlStringCommand("UPDATE ToDoItems SET ItemText=@text WHERE ItemId=@id"))
-        //        {
-        //            db.AddInParameter(cmd, "@text", DbType.String, text);
-        //            db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-        //            db.ExecuteNonQuery(cmd);
-        //        }
-
-        //            hfIsEdit.Value = "false";
-        //            hfEditItemId.Value = "";
-        //            txtNewItem.Text = "";
-        //            lblError.Text = "";
-        //            btnAddItem.Text = "Add";
-        //    }
-        //    else
-        //    {
-        //        int newOrder;
-        //        using (DbCommand getMax = db.GetSqlStringCommand("SELECT ISNULL(MAX(DisplayOrder),0)+1 FROM ToDoItems WHERE ListId=1"))
-        //        {
-        //            object result = db.ExecuteScalar(getMax);
-        //            newOrder = Convert.ToInt32(result);
-        //        }
-
-        //        using (DbCommand cmd = db.GetSqlStringCommand("INSERT INTO ToDoItems (ListId, ItemText, DisplayOrder) VALUES (1, @ItemText, @Order)"))
-        //        {
-        //            db.AddInParameter(cmd, "@ItemText", DbType.String, text);
-        //            db.AddInParameter(cmd, "@Order", DbType.Int32, newOrder);
-        //            db.ExecuteNonQuery(cmd);
-        //        }
-        //    }
-
-        //    txtNewItem.Text = "";
-        //    BindItems(1);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        ExceptionLogger.Log(ex, "BindItems Failed");
-        //        lblError.Text = "An error occurred while loading tasks.";
-        //    }
-        //    finally
-        //    {
-        //        lblError.Text = "";
-        //    }
-        //}
-
-        //protected void btnAddItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        //lblError.Text = ""; // don’t clear txtNewItem here, only clear errors
-
-        //        string text = txtNewItem.Text?.Trim();
-
-        //        if (string.IsNullOrWhiteSpace(text))
-        //        {
-        //            lblError.Text = "Enter a task before adding.";
-        //            return;
-
-        //        }
-        //        if (IsTestMode)  // 👈 short-circuit for unit tests
-        //        {
-        //            if (hfIsEdit.Value == "true")
-        //            {
-        //                hfIsEdit.Value = "false";
-        //                hfEditItemId.Value = "";
-        //                btnAddItem.Text = "Add";
-        //            }
-        //            txtNewItem.Text = "";
-        //            return;
-        //        }
-
-        //        if (hfIsEdit.Value == "true" && int.TryParse(hfEditItemId.Value, out int itemId))
-        //        {
-        //            // UPDATE
-        //            using (DbCommand cmd = db.GetSqlStringCommand("UPDATE ToDoItems SET ItemText=@text WHERE ItemId=@id"))
-        //            {
-        //                db.AddInParameter(cmd, "@text", DbType.String, text);
-        //                db.AddInParameter(cmd, "@id", DbType.Int32, itemId);
-        //                db.ExecuteNonQuery(cmd);
-        //            }
-
-        //            // reset edit mode
-        //            hfIsEdit.Value = "false";
-        //            hfEditItemId.Value = "";
-        //            btnAddItem.Text = "Add";
-        //        }
-        //        else
-        //        {
-        //            int newOrder;
-        //            using (DbCommand getMax = db.GetSqlStringCommand("SELECT ISNULL(MAX(DisplayOrder),0)+1 FROM ToDoItems WHERE ListId=1"))
-        //            {
-        //                object result = db.ExecuteScalar(getMax);
-        //                newOrder = Convert.ToInt32(result);
-        //            }
-
-        //            using (DbCommand cmd = db.GetSqlStringCommand("INSERT INTO ToDoItems (ListId, ItemText, DisplayOrder) VALUES (1, @ItemText, @Order)"))
-        //            {
-        //                db.AddInParameter(cmd, "@ItemText", DbType.String, text);
-        //                db.AddInParameter(cmd, "@Order", DbType.Int32, newOrder);
-        //                db.ExecuteNonQuery(cmd);
-        //            }
-        //        }
-
-        //        txtNewItem.Text = ""; // clear only after successful insert/update
-        //        BindItems(1);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ExceptionLogger.Log(ex, "btnAddItem_Click Failed");
-        //        lblError.Text = "An error occurred while loading tasks.";
-        //    }
-        //    // ❌ don’t clear lblError.Text in finally
-        //}
-
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
             try
             {
-                lblError.Text = ""; // only clear errors
+                lblError.Text = "";
 
                 string text = txtNewItem.Text?.Trim();
 
@@ -231,7 +91,7 @@ namespace ToDoApp
                     return;
                 }
 
-                if (IsTestMode)  // 👈 short-circuit for unit tests
+                if (IsTestMode) 
                 {
                     if (hfIsEdit.Value == "true")
                     {
@@ -242,10 +102,10 @@ namespace ToDoApp
                     }
                     else
                     {
-                        // simulate insert (do nothing)
+                        
                     }
 
-                    txtNewItem.Text = ""; // ✅ clear only after simulation
+                    txtNewItem.Text = ""; 
                     return;
                 }
 
