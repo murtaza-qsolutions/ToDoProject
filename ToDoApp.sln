@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.App", "ToDo.App\ToDo.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.DAL", "ToDo.DAL\ToDo.DAL.csproj", "{EA4366F5-66CB-435B-9721-BE2381C87DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightTests", "PlaywrightTests\PlaywrightTests.csproj", "{F659C983-7DEC-49BC-B0AF-86A157A8B379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsPlaywrightTests", "WebFormsPlaywrightTests\WebFormsPlaywrightTests.csproj", "{D9940F0B-3068-489D-B8F4-41F1CB942B55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA4366F5-66CB-435B-9721-BE2381C87DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F659C983-7DEC-49BC-B0AF-86A157A8B379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F659C983-7DEC-49BC-B0AF-86A157A8B379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F659C983-7DEC-49BC-B0AF-86A157A8B379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F659C983-7DEC-49BC-B0AF-86A157A8B379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9940F0B-3068-489D-B8F4-41F1CB942B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9940F0B-3068-489D-B8F4-41F1CB942B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9940F0B-3068-489D-B8F4-41F1CB942B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9940F0B-3068-489D-B8F4-41F1CB942B55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

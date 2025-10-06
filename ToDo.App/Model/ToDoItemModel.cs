@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ToDo.DAL.DAO;
 using ToDo.DAL.ObjectModel;
 
@@ -10,47 +6,20 @@ namespace ToDo.App.Model
 {
     public class ToDoItemModel
     {
-        public ToDoItemModel() { }
+        private readonly IToDoRepository _repository;
 
-        public int Create(ToDoItem item)
+        public ToDoItemModel(IToDoRepository repository)
         {
-            ToDoActions toDoActions = new ToDoActions();
-            return toDoActions.Create(item);
+            _repository = repository;
         }
-        public ToDoItem Get(int id)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            return toDoActions.Get(id);
-        }
-        public IEnumerable<ToDoItem> GetAll()
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            return toDoActions.GetAll();
-        }
-        public void Update(ToDoItem item)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-           toDoActions.Update(item);
-        }
-        public void Delete(int id)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            toDoActions.Delete(id);
-        }
-        public void ColorChange(ToDoItem item)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            toDoActions.ColorChange(item);
-        }
-        public void DisplayOrderChange(ToDoItem item)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            toDoActions.DisplayOrderChange(item);
-        }
-        public void IsDoneChange(ToDoItem item)
-        {
-            ToDoActions toDoActions = new ToDoActions();
-            toDoActions.IsDoneChange(item);
-        }
+
+        public int Create(ToDoItem item) => _repository.Create(item);
+        public ToDoItem Get(int id) => _repository.Get(id);
+        public IEnumerable<ToDoItem> GetAll() => _repository.GetAll();
+        public void Update(ToDoItem item) => _repository.Update(item);
+        public void Delete(int id) => _repository.Delete(id);
+        public void ColorChange(ToDoItem item) => _repository.ColorChange(item);
+        public void DisplayOrderChange(ToDoItem item) => _repository.DisplayOrderChange(item);
+        public void IsDoneChange(ToDoItem item) => _repository.IsDoneChange(item);
     }
 }

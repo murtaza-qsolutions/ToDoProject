@@ -9,7 +9,7 @@ using ToDo.DAL.ObjectModel;
 
 namespace ToDo.DAL.DAO
 {
-    public class ToDoActions
+    public class ToDoActions : IToDoRepository
     {
         private readonly Database _database;
 

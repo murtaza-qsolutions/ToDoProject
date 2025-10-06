@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ToDo.App.EventArg;
 using ToDo.App.Model;
 using ToDo.App.View;
+using ToDo.DAL.DAO;
 using ToDo.DAL.ObjectModel;
+using ToDo.DAL.Repository;
 
 namespace ToDo.App.Presenter
 {
     public class ToDoPresenter
     {
         private readonly IToDoView _view;
+        private readonly ToDoItemModel _model;
+
         public ToDoPresenter(IToDoView view)
         {
-            this._view = view;
+            _view = view;
+            _model = new ToDoItemModel(new ToDoRepository());
+
             _view.GetAll += new EventHandler<ToDoEventArguments>(GetAll);
             _view.GetAllByID += new EventHandler<ToDoEventArguments>(GetAllByID);
             _view.Insert += new EventHandler<ToDoEventArguments>(Insert);
@@ -24,110 +28,71 @@ namespace ToDo.App.Presenter
             _view.ColorChange += new EventHandler<ToDoEventArguments>(ColorChange);
             _view.DisplayOrderChange += new EventHandler<ToDoEventArguments>(DisplayOrderChange);
             _view.IsDoneChanged += new EventHandler<ToDoEventArguments>(IsDoneChange);
-            //_view.AttachPresenter(this);
         }
+
         private void GetAll(object sender, ToDoEventArguments e)
         {
-         ToDoItemModel model = new ToDoItemModel();
-            var items = model.GetAll();
-            e.Items = items.ToList();
+            e.Items = _model.GetAll().ToList();
         }
-        private ToDoItem setObject(int listId,string title, string color, bool isDone)
-        {
-            ToDoItem item = new ToDoItem();
-            item.ListId = listId;
-            item.ItemText = title;
-            item.ItemColor = color;
-            item.IsDone = isDone;
-            item.CreatedAt = DateTime.Now;
-            return item;
-        }
-        private ToDoItem setObject(int ItemId, string title)
-        {
-            ToDoItem item = new ToDoItem();
-            item.ItemId = ItemId;
-            item.ItemText = title;
-            item.CreatedAt = DateTime.Now;
-            return item;
-        }
-        private ToDoItem setObject(int ItemId, bool IsDone)
-        {
-            ToDoItem item = new ToDoItem();
-            item.ItemId = ItemId;
-            item.IsDone = IsDone;
-            return item;
-        }
-        //private ToDoItem setObject(int ItemId, int listId)
-        //{
-        //    ToDoItem item = new ToDoItem();
-        //    item.ItemId = ItemId;
-        //    item.ListId = listId;
-        //    return item;
-        //}
-        private ToDoItem setDisplayOrder(int ItemId, int DisplayOrder)
-        {
-            ToDoItem item = new ToDoItem();
-            item.ItemId = ItemId;
-            item.DisplayOrder = DisplayOrder;
-            return item;
 
-        }
-        private ToDoItem setColor(int ItemId, string color)
-        {
-            ToDoItem item = new ToDoItem();
-            item.ItemId = ItemId;
-            item.ItemColor = color;
-            return item;
-        }
         private void GetAllByID(object sender, ToDoEventArguments e)
         {
-            ToDoItemModel model = new ToDoItemModel();
-            var items = model.Get(e.ListId);
-            if(items != null)
-            {
-                e.Items = new List<ToDoItem> { items };
-            }
-            else
-            {
-                e.Items = new List<ToDoItem> { items };
-            }
-        }
-        private void Insert(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            ToDoItem item = setObject(e.ListId, e.ItemText, e.ItemColor, e.IsDone);
-            model.Create(item);
-        }
-        private void Update(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            ToDoItem item = setObject(e.ItemId, e.ItemText);
-            model.Update(item);
-        }
-        private void Delete(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            //ToDoItem item = setObject(e.ItemId, e.ListId);
-            model.Delete(e.ItemId);
-        }
-        private void ColorChange(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            ToDoItem item = setColor(e.ItemId, e.ItemColor);
-            model.ColorChange(item);
-        }
-        private void DisplayOrderChange(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            ToDoItem item = setDisplayOrder(e.ItemId, e.DisplayOrder);
-            model.DisplayOrderChange(item);
-        }
-        public void IsDoneChange(object sender, ToDoEventArguments e)
-        {
-            ToDoItemModel model = new ToDoItemModel();
-            ToDoItem item = setObject(e.ItemId, e.IsDone);
-            model.IsDoneChange(item);
+            var item = _model.Get(e.ListId);
+            e.Items = item != null ? new List<ToDoItem> { item } : new List<ToDoItem>();
         }
 
+        private void Insert(object sender, ToDoEventArguments e)
+        {
+            var item = BuildItem(e.ListId, e.ItemText, e.ItemColor, e.IsDone);
+            _model.Create(item);
+        }
+
+        private void Update(object sender, ToDoEventArguments e)
+        {
+            var item = BuildItemForUpdate(e.ItemId, e.ItemText);
+            _model.Update(item);
+        }
+
+        private void Delete(object sender, ToDoEventArguments e)
+        {
+            _model.Delete(e.ItemId);
+        }
+
+        private void ColorChange(object sender, ToDoEventArguments e)
+        {
+            var item = new ToDoItem { ItemId = e.ItemId, ItemColor = e.ItemColor };
+            _model.ColorChange(item);
+        }
+
+        private void DisplayOrderChange(object sender, ToDoEventArguments e)
+        {
+            var item = new ToDoItem { ItemId = e.ItemId, DisplayOrder = e.DisplayOrder };
+            _model.DisplayOrderChange(item);
+        }
+
+        private void IsDoneChange(object sender, ToDoEventArguments e)
+        {
+            var item = new ToDoItem { ItemId = e.ItemId, IsDone = e.IsDone };
+            _model.IsDoneChange(item);
+        }
+
+        // helper builders instead of multiple setObject overloads
+        private ToDoItem BuildItem(int listId, string text, string color, bool isDone) =>
+            new ToDoItem
+            {
+                ListId = listId,
+                ItemText = text,
+                ItemColor = color,
+                IsDone = isDone,
+                CreatedAt = DateTime.Now
+            };
+
+        private ToDoItem BuildItemForUpdate(int itemId, string text) =>
+            new ToDoItem
+            {
+                ItemId = itemId,
+                ItemText = text,
+                CreatedAt = DateTime.Now
+            };
     }
 }

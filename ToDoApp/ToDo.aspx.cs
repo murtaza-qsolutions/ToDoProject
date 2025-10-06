@@ -13,8 +13,10 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ToDo.App.EventArg;
+using ToDo.App.Model;
 using ToDo.App.Presenter;
 using ToDo.App.View;
+using ToDo.DAL.DAO;
 
 namespace ToDoApp
 {
@@ -39,10 +41,15 @@ namespace ToDoApp
         {
             this.presenter = presenter;
         }
-
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            var repository = new ToDoActions();              // DAL implementation
+            var model = new ToDoItemModel(repository);       // Model with abstraction
+            presenter = new ToDoPresenter(this);      // Presenter with dependencies
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            presenter = new ToDoPresenter(this);
+            //presenter = new ToDoPresenter(this);
 
             if (!IsPostBack)
             {
