@@ -1,128 +1,105 @@
-# ToDoApp ✅
+# ToDoProject
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)  
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)  
+A classic ASP.NET Web Forms to-do list application with a layered architecture:
 
----
+- **UI project**: `ToDoApp` (Web Forms site)
+- **Application layer**: `ToDo.App` (presenter/model/view contracts)
+- **Data access layer**: `ToDo.DAL` (repository + SQL operations)
+- **Tests**: `ToDoAppUnitTest`, `WebFormsPlaywrightTests`
 
-## Description
-**ToDoApp** is a lightweight ASP.NET WebForms application with SQL Server backend that helps you manage daily tasks.  
-It supports adding, editing, deleting, color-tagging, and marking tasks as completed. The app also features **drag-and-drop task ordering** for better organization.
+## Features
 
----
+- Create, update, and delete to-do items.
+- Mark an item as done.
+- Change item color.
+- Reorder items with drag-and-drop (display order is persisted).
+- Uses SQL Server for persistence.
 
-## Table of Contents
-1. [Introduction](#1-introduction)  
-2. [Installation](#2-installation)  
-3. [Usage](#3-usage)  
-4. [Features](#4-features)  
-5. [Contributing](#5-contributing)  
-6. [License](#6-license)  
-7. [Acknowledgments](#7-acknowledgments)  
+## Tech stack
 
----
+- ASP.NET Web Forms (.NET Framework 4.7.2 web app)
+- C# class libraries for app/DAL layers
+- SQL Server
+- jQuery + jQuery UI for client interactions
+- Enterprise Library Data Application Block for DB access
 
-## 1. Introduction
-The motivation behind **ToDoApp** was to create a simple yet powerful task manager with:  
-- Fast UI updates using `UpdatePanel` and jQuery  
-- Persistent storage with SQL Server  
-- A clean interface to manage tasks visually  
+## Repository structure
 
-This project demonstrates **ASP.NET WebForms + jQuery integration** for real-time task updates and serves as a learning project for beginners in ASP.NET.
+```text
+ToDoProject/
+├── ToDoApp/                 # Web UI (ASPX, code-behind, scripts, styles)
+├── ToDo.App/                # Application logic (presenter/model/view interfaces)
+├── ToDo.DAL/                # Data access and domain objects
+├── ToDoAppUnitTest/         # Unit test project
+├── WebFormsPlaywrightTests/ # UI/e2e test project
+└── ToDoApp.sln              # Solution file
+```
 
----
+## Prerequisites
 
-## 2. Installation
+- Windows with IIS Express support (recommended via Visual Studio)
+- Visual Studio 2019 or 2022
+- .NET Framework 4.7.2 Developer Pack
+- SQL Server (Express/Developer is fine)
 
-### Prerequisites
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)  
-- [SQL Server](https://www.microsoft.com/sql-server) (Express or Developer edition)  
-- Visual Studio 2019/2022  
+## Setup
 
-### Steps
-1. Clone the repository:
+1. **Clone and open solution**
+
    ```bash
-   git clone https://github.com/username/ToDoApp.git
-   cd ToDoApp
-Open the project in Visual Studio.
+   git clone <your-repo-url>
+   cd ToDoProject
+   ```
 
-Configure the database:
+   Open `ToDoApp.sln` in Visual Studio.
 
-Run the SQL script in /Database/ToDoApp.sql to create the ToDoItems table.
+2. **Configure connection string**
 
-Update the connection string in Web.config:
+   In `ToDoApp/Web.config`, update the `ToDoDB` connection string to your SQL Server instance.
 
-xml
-Copy code
-<connectionStrings>
-  <add name="ToDoDb"
-       connectionString="Data Source=.;Initial Catalog=ToDoApp;Integrated Security=True"
-       providerName="System.Data.SqlClient" />
-</connectionStrings>
-Build and run the project (F5 in Visual Studio).
+   ```xml
+   <connectionStrings>
+     <add name="ToDoDB"
+          connectionString="Data Source=.;Initial Catalog=ToDoApp;Integrated Security=True"
+          providerName="System.Data.SqlClient" />
+   </connectionStrings>
+   ```
 
-3. Usage
-Add a Task
-Type a task in the New Task textbox and click Add.
-The task will appear in the list immediately.
+3. **Create database/table**
 
-Mark as Done
-Click the Done tab on a task.
-✔ The task will be marked with strikethrough and disabled (cannot be undone).
+   Create a database named `ToDoApp` (or adjust the connection string), then run:
 
-Change Color
-Click the Color tab, pick a color → task background updates instantly.
+   ```sql
+   CREATE TABLE ToDoItems (
+       ItemId INT IDENTITY(1,1) PRIMARY KEY,
+       ListId INT NOT NULL,
+       ItemText NVARCHAR(500) NOT NULL,
+       ItemColor NVARCHAR(50) NULL,
+       IsDone BIT NOT NULL CONSTRAINT DF_ToDoItems_IsDone DEFAULT(0),
+       DisplayOrder INT NOT NULL,
+       CreatedAt DATETIME NOT NULL
+   );
+   ```
 
-Delete a Task
-Click the Delete tab once → shows "SURE?" confirmation.
-Click again → task deleted.
-Click elsewhere → confirmation is canceled.
+4. **Run the web project**
 
-Drag-and-Drop
-Drag tasks to reorder → order is saved to the database.
+   - Set `ToDoApp` as Startup Project.
+   - Press **F5** (or Ctrl+F5).
 
-4. Features
-✅ Add, edit, delete tasks
+## How to use
 
-✅ Mark tasks as Done (one-way only, never undone)
+- Add a task using the text box and **Add** button.
+- Double-click task text to load it for editing, then click **Update**.
+- Click the color tab to change task color.
+- Click the done tab to mark an item completed.
+- Click delete tab to remove an item.
+- Drag tasks by the drag handle to reorder them.
 
-✅ Color-tag tasks for categorization
+## Notes
 
-✅ Drag-and-drop task ordering
+- Connection names and settings are read through Enterprise Library (`ToDoDB`).
+- Logging configuration exists in `ToDoApp/Web.config` and may reference a machine-specific path; adjust it for your environment.
 
-✅ ASP.NET WebForms backend with SQL persistence
+## License
 
-✅ jQuery-powered frontend interactions
-
-5. Contributing
-Contributions are welcome!
-
-Fork the repo
-
-Create a branch (git checkout -b feature/my-feature)
-
-Commit changes (git commit -m "Added new feature")
-
-Push (git push origin feature/my-feature)
-
-Create a Pull Request
-
-Guidelines
-Stick to C# coding conventions
-
-Keep UI responsive
-
-Ensure SQL queries are parameterized (no SQL injection)
-
-6. License
-This project is licensed under the MIT License.
-See LICENSE for details.
-
-7. Acknowledgments
-jQuery for front-end event handling
-
-ASP.NET WebForms for rapid backend development
-
-SQL Server for reliable data storage
-
-Inspiration from classic ToDo applications
+No license file is currently included in this repository. Add one if you plan to distribute the project.
